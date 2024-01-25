@@ -53,19 +53,28 @@ const setRandomPosition = () => {
   return { x: randomXPosition, y: randomYPosition };
 };
 
-function App() {
+
+
+
+function Ivan({ incrementCount }) {
   const [face, setFace] = useState(() => setRandomFace());
   const [position, setPosition] = useState(() => setRandomPosition());
 
-  const getRandomFaceAndPosition = () => {
+  const getEvent = () => {
     setFace(setRandomFace());
     setPosition(setRandomPosition());
+    incrementCount()
   };
 
   return (
-      <img src={face.image} alt="" onClick={getRandomFaceAndPosition} className="size-24 object-contain drop-shadow-xl transition-all" 
-    style={{ position: 'absolute', left: position.x, top: position.y }} />
+      <img 
+        src={face.image} 
+        alt="" 
+        onClick={getEvent} 
+        className="size-24 object-contain drop-shadow-xl transition-all" 
+        style={{ position: 'absolute', left: position.x, top: position.y }} 
+      />
   );
 }
 
-export default App;
+export default Ivan;
